@@ -9,6 +9,7 @@ namespace DFWMobile.Bootcamp.Common.Services
 {
     public interface IDataService
     {
+        IDataSource Source { get; }
         Task<List<Item>> GetItems();
     }
 }

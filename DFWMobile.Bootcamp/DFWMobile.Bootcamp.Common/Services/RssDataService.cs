@@ -24,6 +24,11 @@ namespace DFWMobile.Bootcamp.Common.Services
             _dataSource = source;
             _appSettings = appSettings;
         }
+
+        public IDataSource Source
+        {
+            get { return _dataSource; }
+        }
         public async Task<List<Item>> GetItems()
         {
             var items = await Parse();
