@@ -8,9 +8,9 @@ namespace DFWMobile.Bootcamp.Common.Services
 {
     public interface IAppSettings
     {
-        int RssMaxItemsPerFeed { get; }
-        bool ForceYoutubeVideosToLoadFullScreen { get; }
-        bool AutoPlayYoutubeVideos { get; }
+        int RssMaxItemsPerFeed { get; set; }
+        bool ForceYoutubeVideosToLoadFullScreen { get; set; }
+        bool AutoPlayYoutubeVideos { get; set; }
         string DateFormatString { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace DFWMobile.Bootcamp.Common.Services
         public int RssMaxItemsPerFeed
         {
             get { return _settings.GetValueOrDefault<int>("RssMaxItemsPerFeed", 20); }
+            set { _settings.AddOrUpdateValue("RssMaxItemsPerFeed", value); _settings.Save(); }
         }
 
         public bool ForceYoutubeVideosToLoadFullScreen

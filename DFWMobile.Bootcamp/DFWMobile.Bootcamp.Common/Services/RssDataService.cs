@@ -16,9 +16,9 @@ namespace DFWMobile.Bootcamp.Common.Services
     {
         private const string _userAgent = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)";
         private HttpClient _httpClient;
-        private RssDataSource _dataSource;
+        private IDataSource _dataSource;
         private IAppSettings _appSettings;
-        public RssDataService(RssDataSource source, IAppSettings appSettings)
+        public RssDataService(IDataSource source, IAppSettings appSettings)
         {
             _httpClient = new HttpClient();
             _dataSource = source;
