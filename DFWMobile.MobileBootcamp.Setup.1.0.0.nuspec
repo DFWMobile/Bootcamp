@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>DFWMobile.MobileBootcamp.Setup</id>
+        <version>1.0.0</version>
+        <title>DFW Mobile .NET - Mobile Bootcamp - Setup</title>
+        <authors>Sean Sparkman</authors>
+        <projectUrl>http://www.dfwmobile.net/mobile-bootcamp/</projectUrl>
+        <iconUrl>http://www.dfwmobile.net/wp-content/themes/twentytwelve-child/images/dfwmobilenet-small.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This will setup your project with all the dependencies you will need.</description>
+        <copyright>2014</copyright>
+        <language>en-US</language>
+    </metadata>
+    <files />
+</package>
