@@ -11,9 +11,57 @@ namespace DFWMobile.Bootcamp.Common.SampleData
     {
         public SelectedItemSampleData()
         {
-            
+            var items = new List<Item>()
+            {
+                new Item()
+                {
+                    Title = "Something Cool",
+                    Subtitle = "Something Short",
+                    Description = "Something Descriptive",
+                    Image = "http://i.imgur.com/bmpyrJZ.jpg",
+                    Group = "Dogs"
+                },
+                new Item()
+                {
+                    Title = "Something Cool",
+                    Subtitle = "Something Short",
+                    Description = "Something Descriptive",
+                    Image = "http://i.imgur.com/bmpyrJZ.jpg",
+                    Group = "Dogs"
+                },
+                new Item()
+                {
+                    Title = "Something Cool",
+                    Subtitle = "Something Short",
+                    Description = "Something Descriptive",
+                    Image = "http://i.imgur.com/bmpyrJZ.jpg",
+                    Group = "Dogs"
+                },
+                new Item()
+                {
+                    Title = "Something Cool",
+                    Subtitle = "Something Short",
+                    Description = "Something Descriptive",
+                    Image = "http://i.imgur.com/bmpyrJZ.jpg",
+                    Group = "Dogs"
+                },
+                new Item()
+                {
+                    Title = "Something Cool",
+                    Subtitle = "Something Short",
+                    Description = "Something Descriptive",
+                    Image = "http://i.imgur.com/bmpyrJZ.jpg",
+                    Group = "Dogs"
+                },
+            };
+            SelectedGroup = new List<Group<Item>>
+            {
+                new Group<Item>("Dogs", items)
+            };
+
+            SelectedItem = items[0];
         }
-        public Group<Item> SelectedGroup { get; set; }
+        public List<Group<Item>> SelectedGroup { get; set; }
         public Item SelectedItem { get; set; }
     }
 }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.ViewModels;
-using DFWMobile.Bootcamp.Common.DataSources;
 using DFWMobile.Bootcamp.Common.Models;
 using DFWMobile.Bootcamp.Common.Services;
 using DFWMobile.Bootcamp.Common.Settings;
@@ -15,46 +14,52 @@ using DFWMobile.Bootcamp.Core.Helpers;
 
 namespace DFWMobile.Bootcamp.Core.ViewModels
 {
-    public class GroupedItemsViewModel
+    public class GroupDetailsViewModel
         : BaseViewModel
     {
         private IDataServiceFactory _dataServiceFactory;
-        private readonly List<IDataService> _dataServices;
+        private IDataService _dataService;
         private readonly IMvxResourceLoader _resourceLoader;
         private readonly ObservableCollection<Group<Item>> _groupedItems; 
-        public GroupedItemsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
+        public GroupDetailsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
             : base(appSettings)
         {
             _dataServiceFactory = new DataServiceFactory(appSettings, _resourceLoader);
             _resourceLoader = resourceLoader;
-
-            _dataServices = new List<IDataService>();
-            foreach (var source in DataServiceFactoryHelper.DataSources)
-            {
-                _dataServices.Add(_dataServiceFactory.GenerateService(source));
-            }
-
             _groupedItems = new ObservableCollection<Group<Item>>();
         }
 
-        public async void Init()
+        public async void Init(string group, string title)
         {
-            foreach (var service in _dataServices)
+            var dataSource = DataServiceFactoryHelper.DataSources.FirstOrDefault(ds => ds.ServiceName == group);
+
+            if (dataSource != null)
             {
-                var items = await service.GetItems();
+                _dataService = _dataServiceFactory.GenerateService(dataSource);
+                var items = await _dataService.GetItems();
+                SelectedGroup.Add(new Group<Item>(dataSource.ServiceName, items));
 
-                if (items != null && items.Count > 0)
+                if (!string.IsNullOrWhiteSpace(title))
                 {
-                    var group = new Group<Item>(items[0].Group, items);
+                    SelectedItem = items.FirstOrDefault(i => i.Title == title);
+                }
 
-                    _groupedItems.Add(group);
+                if (SelectedItem == null)
+                {
+                    SelectedItem = items.FirstOrDefault();
                 }
             }
         }
-
-        public ObservableCollection<Group<Item>> ItemGroups
+        public ObservableCollection<Group<Item>> SelectedGroup
         {
             get { return _groupedItems; }
+        }
+
+        private Item _selectedItem;
+        public Item SelectedItem
+        {
+            get { return _selectedItem; }
+            set { _selectedItem = value; RaisePropertyChanged(() => SelectedItem); }
         }
 
         private ICommand _goToGroupCommand;
