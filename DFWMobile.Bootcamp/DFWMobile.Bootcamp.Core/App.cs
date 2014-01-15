@@ -2,6 +2,7 @@ using System.Reflection;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 using DFWMobile.Bootcamp.Common.Services;
+using DFWMobile.Bootcamp.Common.Settings;
 
 namespace DFWMobile.Bootcamp.Core
 {
@@ -20,7 +21,7 @@ namespace DFWMobile.Bootcamp.Core
             Mvx.RegisterType(typeof(IAppSettings), typeof(AppSettings));
             Mvx.RegisterType(typeof(IDataServiceFactory), typeof(DataServiceFactory));
 				
-            RegisterAppStart<ViewModels.FirstViewModel>();
+            RegisterAppStart<ViewModels.GroupedItemsViewModel>();
         }
     }
 }

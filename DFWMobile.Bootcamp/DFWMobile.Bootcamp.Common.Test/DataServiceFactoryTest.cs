@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.Test.Core;
+using DFWMobile.Bootcamp.Common.DataSources;
 using DFWMobile.Bootcamp.Common.Services;
+using DFWMobile.Bootcamp.Common.Settings;
 using Moq;
 using NUnit.Framework;
 

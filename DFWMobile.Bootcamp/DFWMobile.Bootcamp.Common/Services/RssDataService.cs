@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -68,7 +69,7 @@ namespace DFWMobile.Bootcamp.Common.Services
                             Group = @group,
                         };
 
-                items = items.Where(x => x.Description != string.Empty);
+                items = items.Where(x => x.Description != string.Empty).ToList();
             }
             else
             {
@@ -92,9 +93,10 @@ namespace DFWMobile.Bootcamp.Common.Services
                             Image = item.Descendants(media + "thumbnail") != null ? item.Descendants(media + "thumbnail").Select(e => (string)e.Attribute("url")).FirstOrDefault() : "",
                             Group = @group,
                         };
+                items = items.Where(x => x.Description != string.Empty).ToList();
             }
 
-            if (items.ToList().Count > 0)
+            if (((List<Item>)items).Count > 0)
             {
 
                 foreach (var item in items)
@@ -108,15 +110,13 @@ namespace DFWMobile.Bootcamp.Common.Services
                     //Format dates to look cleaner
                     var dateTimeResult = new DateTime();
                     if (DateTime.TryParse(item.Subtitle, out dateTimeResult))
-                        item.Subtitle = dateTimeResult.ToString();
+                        item.Subtitle = dateTimeResult.ToString(_appSettings.DateFormatString);
+                    else if (item.Subtitle != null && DateTime.TryParseExact(item.Subtitle, "ddd, dd MMM yyyy HH:mm:ss zzz", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeResult))
+                        item.Subtitle = dateTimeResult.ToString(_appSettings.DateFormatString);
 
                     if (_appSettings.ForceYoutubeVideosToLoadFullScreen)
                         item.Description = item.Description.Replace("/watch?v=", "/watch_popup?v=");
                 };
-            }
-            else
-            {
-                throw new Exception("Zero items retrieved from " + _dataSource.ServiceUri + ", Application Error");
             }
 
             return items;
