@@ -47,6 +47,11 @@
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IDataServiceFactory.cs" />
     <Compile Include="Services\IDataSource.cs" />
+    <Compile Include="Services\ItemDataService.cs" />
+    <Compile Include="Services\LocalDataService.cs" />
+    <Compile Include="Services\LocalDataSource.cs" />
+    <Compile Include="Services\RemoteDataService.cs" />
+    <Compile Include="Services\RemoteDataSource.cs" />
     <Compile Include="Services\RssDataService.cs" />
     <Compile Include="Services\RssDataSource.cs" />
   </ItemGroup>
@@ -68,6 +73,9 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Json">
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>

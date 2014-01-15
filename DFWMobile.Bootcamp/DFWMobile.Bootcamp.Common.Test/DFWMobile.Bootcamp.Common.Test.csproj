@@ -54,6 +54,12 @@
     <Reference Include="Cirrious.MvvmCross.Plugins.Json">
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\net45\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\net45\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader.Wpf">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\net45\Cirrious.MvvmCross.Plugins.ResourceLoader.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\net45\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
     </Reference>
@@ -97,6 +103,7 @@
   <ItemGroup>
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\ResourceLoaderPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="DataServiceFactoryTest.cs" />
     <Compile Include="Helpers\Settings.cs" />
