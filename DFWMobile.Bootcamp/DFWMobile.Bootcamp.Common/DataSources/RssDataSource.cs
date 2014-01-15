@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DFWMobile.Bootcamp.Common.Services
+namespace DFWMobile.Bootcamp.Common.DataSources
 {
     public class RssDataSource
         : IDataSource

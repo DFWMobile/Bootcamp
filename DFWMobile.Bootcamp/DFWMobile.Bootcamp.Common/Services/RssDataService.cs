@@ -6,7 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DFWMobile.Bootcamp.Common.DataSources;
 using DFWMobile.Bootcamp.Common.Models;
+using DFWMobile.Bootcamp.Common.Settings;
 using Refractored.MvxPlugins.Settings;
 
 namespace DFWMobile.Bootcamp.Common.Services

@@ -1,6 +1,6 @@
 ﻿
 
-namespace DFWMobile.Bootcamp.Common.Services
+namespace DFWMobile.Bootcamp.Common.DataSources
 {
     public class LocalDataSource
         : IDataSource

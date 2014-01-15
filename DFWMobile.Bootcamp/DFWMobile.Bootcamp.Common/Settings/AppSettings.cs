@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Refractored.MvxPlugins.Settings;
 
-namespace DFWMobile.Bootcamp.Common.Services
+namespace DFWMobile.Bootcamp.Common.Settings
 {
     public class AppSettings
         : IAppSettings

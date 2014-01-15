@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cirrious.CrossCore.Platform;
+using DFWMobile.Bootcamp.Common.DataSources;
+using DFWMobile.Bootcamp.Common.Settings;
 
 namespace DFWMobile.Bootcamp.Common.Services
 {
