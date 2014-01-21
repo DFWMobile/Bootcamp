@@ -4,21 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC806898-04A7-4CF1-844D-51DFBC3A781F}</ProjectGuid>
-    <OutputType>AppContainerExe</OutputType>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DFWMobile.Bootcamp.Store</RootNamespace>
-    <AssemblyName>DFWMobile.Bootcamp.Store</AssemblyName>
+    <RootNamespace>ClassLibrary1</RootNamespace>
+    <AssemblyName>ClassLibrary1</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>DFWMobile.Bootcamp.Store_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -28,7 +27,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -103,125 +101,55 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
-    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\ResourceLoaderPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\SettingsPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
-    <Compile Include="Common\ItemClickCommand.cs" />
-    <Compile Include="Common\NavigationHelper.cs" />
-    <Compile Include="Common\ObservableDictionary.cs" />
-    <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Converters\BooleanNegationConverter.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\HoneycombConverter.cs" />
-    <Compile Include="Converters\Pair.cs" />
-    <Compile Include="Converters\PairConverter.cs" />
-    <Compile Include="DebugTrace.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setup.cs" />
-    <Compile Include="Views\GroupDetailsView.xaml.cs">
-      <DependentUpon>GroupDetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GroupedItemsView.xaml.cs">
-      <DependentUpon>GroupedItemsView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest">
-      <SubType>Designer</SubType>
-    </AppxManifest>
-    <None Include="DFWMobile.Bootcamp.Store_TemporaryKey.pfx" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.scale-100.png" />
-    <Content Include="Assets\SmallLogo.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Common\ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Common\StandardStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Common\ThemeDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
-    <Page Include="Views\GroupDetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GroupedItemsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="App.cs" />
+    <Compile Include="Helpers\DataServiceFactoryHelper.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\GroupDetailsViewModel.cs" />
+    <Compile Include="ViewModels\GroupedItemsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
-      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.14\lib\netcore45\Cirrious.CrossCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.CrossCore.WindowsStore">
-      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.14\lib\netcore45\Cirrious.CrossCore.WindowsStore.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.CrossCore.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross">
-      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.0.14\lib\netcore45\Cirrious.MvvmCross.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Localization">
-      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.14\lib\netcore45\Cirrious.MvvmCross.Localization.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.DownloadCache.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.File">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.File.WindowsStore">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.File.WindowsStore.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Json">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.ResourceLoader.WindowsStore">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.ResourceLoader.WindowsStore.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.ResourceLoader.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.ResourceLoader.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility.WindowsStore">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\netcore45\Cirrious.MvvmCross.Plugins.Visibility.WindowsStore.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.WindowsStore">
-      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.0.14\lib\netcore45\Cirrious.MvvmCross.WindowsStore.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.0.14\lib\portable-win+net45+MonoAndroid+MonoTouch+sl40+wp71\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.MvxPlugins.Settings">
-      <HintPath>..\packages\Mvx.Plugins.Settings.1.2.0\lib\win8\Refractored.MvxPlugins.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.MvxPlugins.Settings.WindowsStore">
-      <HintPath>..\packages\Mvx.Plugins.Settings.1.2.0\lib\win8\Refractored.MvxPlugins.Settings.WindowsStore.dll</HintPath>
+      <HintPath>..\packages\Mvx.Plugins.Settings.1.2.0\lib\portable-net45+wp8+win8+monoandroid+monotouch\Refractored.MvxPlugins.Settings.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Extensions.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Primitives.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -229,12 +157,7 @@
       <Project>{317e01cd-d5cb-48a6-aeac-0fb3457e9fad}</Project>
       <Name>DFWMobile.Bootcamp.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DFWMobile.Bootcamp.Core\DFWMobile.Bootcamp.Core.csproj">
-      <Project>{dbffad5b-31e0-4043-9886-0c6c7a203f96}</Project>
-      <Name>DFWMobile.Bootcamp.Core</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
@@ -251,4 +174,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+
 </Project>
