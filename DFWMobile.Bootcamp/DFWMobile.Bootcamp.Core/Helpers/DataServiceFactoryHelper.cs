@@ -17,6 +17,12 @@ namespace DFWMobile.Bootcamp.Core.Helpers
             {
                 new RssDataSource()
                 {
+                    ServiceUri =
+                        "http://gdata.youtube.com/feeds/api/playlists/PLR6WI6W1JdeYSXLbm58jwAKYT7RQR31-W?alt=rss&max-results=50&start-index=1",
+                    ServiceName = "Youtube Playlist Example"
+                },
+                new RssDataSource()
+                {
                     ServiceUri = "http://gdata.youtube.com/feeds/base/videos?alt=rss&author=thewindotnet",
                     ServiceName = "Youtube author example"
                 },
