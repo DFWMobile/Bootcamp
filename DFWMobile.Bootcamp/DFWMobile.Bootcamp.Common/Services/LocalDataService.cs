@@ -31,6 +31,11 @@ namespace DFWMobile.Bootcamp.Common.Services
                 .ConfigureAwait(true);
         }
 
+        public Task<bool> Add(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Item> Parse()
         {
             var localItemsXml = _resourceLoader.GetTextResource(_dataSource.ServiceUri);

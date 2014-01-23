@@ -38,6 +38,11 @@ namespace DFWMobile.Bootcamp.Common.Services
             return items.ToList();
         }
 
+        public Task<bool> Add(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public async Task<IEnumerable<Item>> Parse()
         {
