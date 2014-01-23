@@ -25,7 +25,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         public GroupedItemsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
             : base(appSettings)
         {
-            _dataServiceFactory = new DataServiceFactory(appSettings, _resourceLoader);
+            _dataServiceFactory = dataServiceFactory;
             _resourceLoader = resourceLoader;
 
             _dataServices = new List<IDataService>();

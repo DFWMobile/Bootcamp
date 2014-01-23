@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cirrious.CrossCore.Platform;
+using Cirrious.MvvmCross.Plugins.File;
 using DFWMobile.Bootcamp.Common.DataSources;
 using DFWMobile.Bootcamp.Common.Settings;
 
@@ -14,11 +15,15 @@ namespace DFWMobile.Bootcamp.Common.Services
     {
         private readonly IAppSettings _appSettings;
         private readonly IMvxResourceLoader _resourceLoader;
+        private readonly IMvxJsonConverter _jsonConverter;
+        private readonly IMvxFileStore _fileStore;
 
-        public DataServiceFactory(IAppSettings appSettings, IMvxResourceLoader resourceLoader)
+        public DataServiceFactory(IAppSettings appSettings, IMvxResourceLoader resourceLoader, IMvxFileStore fileStore, IMvxJsonConverter jsonConverter)
         {
             _appSettings = appSettings;
             _resourceLoader = resourceLoader;
+            _fileStore = fileStore;
+            _jsonConverter = jsonConverter;
         }
         public IDataService GenerateService(IDataSource source)
         {
@@ -34,6 +39,10 @@ namespace DFWMobile.Bootcamp.Common.Services
             else if (source is RemoteDataSource)
             {
                 service = new RemoteDataService(source, _appSettings);
+            }
+            else if (source is JsonDataSource)
+            {
+                service = new JsonDataService(source, _fileStore, _jsonConverter);
             }
 
             return service;

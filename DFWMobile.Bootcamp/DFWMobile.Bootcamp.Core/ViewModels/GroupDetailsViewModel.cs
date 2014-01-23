@@ -24,7 +24,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         public GroupDetailsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
             : base(appSettings)
         {
-            _dataServiceFactory = new DataServiceFactory(appSettings, _resourceLoader);
+            _dataServiceFactory = dataServiceFactory;
             _resourceLoader = resourceLoader;
             _groupedItems = new ObservableCollection<Group<Item>>();
         }
@@ -93,7 +93,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             get
             {
                 return (_addItemCommand = _addItemCommand ??
-                    new MvxCommand(() => ShowViewModel<AddItemViewModel>()));
+                    new MvxCommand(() => ShowViewModel<AddItemViewModel>(new { group = _dataService.Source.ServiceName })));
             }
         }
 
@@ -101,5 +101,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         {
             ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
         }
+
+
     }
 }

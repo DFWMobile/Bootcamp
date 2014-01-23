@@ -15,11 +15,13 @@ namespace DFWMobile.Bootcamp.Common.Services
     {
         private IMvxFileStore _fileStore;
         private IMvxJsonConverter _jsonConverter;
-        public JsonDataService(IMvxFileStore fileStore, IMvxJsonConverter jsonConverter)
+        
+        public JsonDataService(IDataSource dataSource, IMvxFileStore fileStore, IMvxJsonConverter jsonConverter)
         {
             _items = new List<Item>();
             _fileStore = fileStore;
             _jsonConverter = jsonConverter;
+            Source = dataSource;
         }
 
         private List<Item> _items; 

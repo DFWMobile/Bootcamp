@@ -54,7 +54,7 @@ namespace DFWMobile.Bootcamp.Common.Test
                                                                                      "</item>" +
                                                                                      "</items>");
 
-            _dataServiceFactory = new DataServiceFactory(settings.Object, resourceLoader.Object);
+            _dataServiceFactory = new DataServiceFactory(settings.Object, resourceLoader.Object, null, null);
         }
 
         [Test]
