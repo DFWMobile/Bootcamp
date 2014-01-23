@@ -86,6 +86,17 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             }
         }
 
+        private ICommand _addItemCommand;
+
+        public ICommand AddItemCommand
+        {
+            get
+            {
+                return (_addItemCommand = _addItemCommand ??
+                    new MvxCommand(() => ShowViewModel<AddItemViewModel>()));
+            }
+        }
+
         private void GoToGroupDetails(Item item)
         {
             ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
