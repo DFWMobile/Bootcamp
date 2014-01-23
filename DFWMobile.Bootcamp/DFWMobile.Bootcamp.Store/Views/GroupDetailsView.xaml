@@ -52,6 +52,7 @@
                     <TextBlock Text="{Binding Title}" Margin="0,0,0,20" Style="{StaticResource SubheaderTextBlockStyle}" MaxHeight="60"/>
                     <Image Source="{Binding Image}" Height="400" Margin="0,0,0,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
                     <TextBlock Text="{Binding Description}" Margin="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}"/>
+
                 </StackPanel>
             </GridView.Header>
             <GridView.GroupStyle>
@@ -95,6 +96,7 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="50"></ColumnDefinition>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding GoBackCommand}"
@@ -103,8 +105,12 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{Binding SelectedItem.Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+
+            <Button Command="{Binding AddItemCommand}" Content="Add" Grid.Column="1"></Button>
+            <TextBlock x:Name="pageTitle" Text="{Binding SelectedItem.Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="2" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+
+
         </Grid>
 
     </Grid>
