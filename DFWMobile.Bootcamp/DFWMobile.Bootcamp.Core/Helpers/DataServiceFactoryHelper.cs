@@ -15,6 +15,11 @@ namespace DFWMobile.Bootcamp.Core.Helpers
         {
             _dataSources = new List<IDataSource>()
             {
+                new JsonDataSource()
+                {
+                    ServiceUri = "local.json",
+                    ServiceName = "Local JSON File"
+                },
                 new RssDataSource()
                 {
                     ServiceUri =
