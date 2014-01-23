@@ -22,7 +22,7 @@ namespace DFWMobile.Bootcamp.Common.Services
         }
 
         public IDataSource Source { get; private set; }
-        public Task<List<Item>> GetItems()
+        public async Task<List<Item>> GetItems()
         {
             var items = new List<Item>();
 
@@ -34,6 +34,9 @@ namespace DFWMobile.Bootcamp.Common.Services
                     _jsonConverter.DeserializeObject<List<Item>>(contents);
                 }
             }
+
+            return await Task.Factory.StartNew(() => items)
+                .ConfigureAwait(true);
         }
     }
 }

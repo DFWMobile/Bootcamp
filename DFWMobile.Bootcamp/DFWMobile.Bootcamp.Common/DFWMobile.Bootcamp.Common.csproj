@@ -38,6 +38,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSources\JsonDataSource.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Item.cs" />

@@ -9,5 +9,7 @@ namespace DFWMobile.Bootcamp.Common.DataSources
     public class JsonDataSource
         : IDataSource
     {
+        public string ServiceUri { get; set; }
+        public string ServiceName { get; set; }
     }
 }
