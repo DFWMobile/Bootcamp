@@ -39,6 +39,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
 
         public async void Init()
         {
+            IsBusy = true;
             foreach (var service in _dataServices)
             {
                 var items = await service.GetItems();
@@ -50,6 +51,15 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
                     _groupedItems.Add(group);
                 }
             }
+            IsBusy = false;
+        }
+
+        private bool _isBusy = false;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { _isBusy = value; RaisePropertyChanged(() => IsBusy); }
         }
 
         public ObservableCollection<Group<Item>> ItemGroups
