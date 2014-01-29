@@ -26,19 +26,19 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
                 <TextBlock Width="155" Style="{StaticResource SubheaderTextStyle}" Margin="39,0,0,0">Title:</TextBlock>
-                <TextBox Text="{Binding Title}" Width="352"></TextBox>
+                <TextBox Text="{Binding Title, Mode=TwoWay}" Width="352"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
                 <TextBlock Width="155" Style="{StaticResource SubheaderTextStyle}" Margin="39,0,0,0">Subtitle:</TextBlock>
-                <TextBox Text="{Binding Subtitle}" Width="352"></TextBox>
+                <TextBox Text="{Binding Subtitle, Mode=TwoWay}" Width="352"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
                 <TextBlock Width="155" Style="{StaticResource SubheaderTextStyle}" Margin="39,0,0,0">Image:</TextBlock>
-                <TextBox Text="{Binding Image}" Width="352"></TextBox>
+                <TextBox Text="{Binding Image, Mode=TwoWay}" Width="352"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
                 <TextBlock Width="155" Style="{StaticResource SubheaderTextStyle}" Margin="39,0,0,0">Description:</TextBlock>
-                <TextBox Text="{Binding Description}" Width="352" TextWrapping="Wrap" AcceptsReturn="True" Height="150"></TextBox>
+                <TextBox Text="{Binding Description, Mode=TwoWay}" Width="352" TextWrapping="Wrap" AcceptsReturn="True" Height="150"></TextBox>
             </StackPanel>
         </StackPanel>
 
@@ -62,7 +62,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar IsOpen="True">
             <CommandBar.PrimaryCommands>
                 <AppBarButton Icon="Cancel" Label="Cancel" Command="{Binding GoBackCommand}"/>
             </CommandBar.PrimaryCommands>

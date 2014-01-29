@@ -36,6 +36,11 @@ namespace DFWMobile.Bootcamp.Common.Services
             throw new NotImplementedException();
         }
 
+        public Task<bool> Delete(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool IsEditable { get { return false; } }
 
         public List<Item> Parse()

@@ -78,7 +78,8 @@
                 x:Name="ZoomedOutGroupGridView"
                 ScrollViewer.IsHorizontalScrollChainingEnabled="False"
                 SelectionMode="None"
-			    IsSwipeEnabled="false" IsItemClickEnabled="True" >
+			    IsSwipeEnabled="false" IsItemClickEnabled="True"
+                    ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}">
                     <GridView.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="250" Width="250">

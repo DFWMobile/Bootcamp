@@ -106,6 +106,17 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             }
         }
 
+        private ICommand _deleteItemCommand;
+
+        public ICommand DeleteItemCommand
+        {
+            get
+            {
+                return (_deleteItemCommand = _deleteItemCommand ??
+                                             new MvxCommand(() => _dataService.Delete(SelectedItem)));
+            }
+        }
+
         private void GoToGroupDetails(Item item)
         {
             ShowViewModel<GroupDetailsViewModel>(new {group = item.Group, title = item.Title});

@@ -79,6 +79,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         public void Save()
         {
             _dataService.Add(_item);
+            Close(this);
         }
     }
 }

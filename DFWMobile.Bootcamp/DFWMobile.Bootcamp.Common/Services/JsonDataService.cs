@@ -46,21 +46,32 @@ namespace DFWMobile.Bootcamp.Common.Services
 
         public async Task<bool> Add(Item item)
         {
+            await GetItems();
+
             _items.Add(item);
 
-            var result = Save();
+            return await Save();
+        }
 
-            return await Task.Factory.StartNew(() => result)
-                .ConfigureAwait(true);
+        public async Task<bool> Delete(Item item)
+        {
+            await GetItems();
+
+            _items.Remove(item);
+
+            return await Save();
         }
 
         public bool IsEditable { get { return true; } }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
+            if (_fileStore.Exists(Source.ServiceUri))
+                _fileStore.DeleteFile(Source.ServiceUri);
             _fileStore.WriteFile(Source.ServiceUri, _jsonConverter.SerializeObject(_items));
 
-            return true;
+            return await Task.Factory.StartNew(() => true)
+                .ConfigureAwait(true);
         }
     }
 }

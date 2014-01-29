@@ -136,5 +136,10 @@ namespace DFWMobile.Bootcamp.Common.Services
         {
             return (strFld.Trim().Trim('"'));
         }
+
+        public Task<bool> Delete(Item item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

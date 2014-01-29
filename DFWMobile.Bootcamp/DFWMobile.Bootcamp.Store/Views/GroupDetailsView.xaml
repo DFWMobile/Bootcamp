@@ -115,6 +115,7 @@
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="Add" Label="Add" Command="{Binding AddItemCommand}" IsEnabled="{Binding IsEditable}" />
+                <AppBarButton Icon="Delete" Label="Delete" Command="{Binding DeleteItemCommand}" IsEnabled="{Binding IsEditable}" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
