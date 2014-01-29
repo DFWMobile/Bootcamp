@@ -41,7 +41,7 @@
 			    ItemsSource="{Binding Source={StaticResource groupViewSource}}"
 			    SelectionMode="None"
 			    IsSwipeEnabled="false" IsItemClickEnabled="True"          
-                common:ItemClickCommand.Command="{Binding GoToGroupCommand}" >
+                common:ItemClickCommand.Command="{Binding GoToItemCommand}" >
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -90,13 +90,12 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-
+        <ProgressRing IsActive="{Binding IsBusy}" Grid.Row="1" Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Width="100"/>
 
         <!-- Back button and page title -->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="50"></ColumnDefinition>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding GoBackCommand}"
@@ -105,13 +104,22 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-
-            <Button Command="{Binding AddItemCommand}" Content="Add" Grid.Column="1"></Button>
-            <TextBlock x:Name="pageTitle" Text="{Binding SelectedItem.Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="2" 
+            <TextBlock x:Name="pageTitle" Text="{Binding SelectedItem.Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
 
 
         </Grid>
 
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="Refresh" Command="{Binding RefreshCommand}"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Add" Label="Add" Command="{Binding AddItemCommand}" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </views:MvxStorePage>

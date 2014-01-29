@@ -12,7 +12,6 @@ namespace DFWMobile.Bootcamp.Common.Services
     {
         IDataSource Source { get; }
         Task<List<Item>> GetItems();
-
         Task<bool> Add(Item item);
     }
 }

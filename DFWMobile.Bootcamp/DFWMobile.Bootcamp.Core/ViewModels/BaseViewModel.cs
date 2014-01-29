@@ -10,7 +10,7 @@ using DFWMobile.Bootcamp.Common.Settings;
 
 namespace DFWMobile.Bootcamp.Core.ViewModels
 {
-    public class BaseViewModel
+    public abstract class BaseViewModel
         : MvxViewModel
     {
         private IAppSettings _appSettings;
@@ -20,10 +20,17 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         }
 
         private ICommand _goBackCommand = null;
+        private bool _isBusy = false;
 
         public ICommand GoBackCommand
         {
             get { return (_goBackCommand = _goBackCommand ?? new MvxCommand(() => this.Close(this))); }
+        }
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { _isBusy = value; RaisePropertyChanged(() => IsBusy); }
         }
     }
 }

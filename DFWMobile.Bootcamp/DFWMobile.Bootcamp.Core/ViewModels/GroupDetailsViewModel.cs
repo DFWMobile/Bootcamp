@@ -20,8 +20,10 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         private IDataServiceFactory _dataServiceFactory;
         private IDataService _dataService;
         private readonly IMvxResourceLoader _resourceLoader;
-        private readonly ObservableCollection<Group<Item>> _groupedItems; 
-        public GroupDetailsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
+        private readonly ObservableCollection<Group<Item>> _groupedItems;
+
+        public GroupDetailsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory,
+            IMvxResourceLoader resourceLoader)
             : base(appSettings)
         {
             _dataServiceFactory = dataServiceFactory;
@@ -31,12 +33,14 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
 
         public async void Init(string group, string title)
         {
+            IsBusy = true;
             var dataSource = DataServiceFactoryHelper.DataSources.FirstOrDefault(ds => ds.ServiceName == group);
 
             if (dataSource != null)
             {
                 _dataService = _dataServiceFactory.GenerateService(dataSource);
                 var items = await _dataService.GetItems();
+                SelectedGroup.Clear();
                 SelectedGroup.Add(new Group<Item>(dataSource.ServiceName, items));
 
                 if (!string.IsNullOrWhiteSpace(title))
@@ -49,28 +53,23 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
                     SelectedItem = items.FirstOrDefault();
                 }
             }
+            IsBusy = false;
         }
+
         public ObservableCollection<Group<Item>> SelectedGroup
         {
             get { return _groupedItems; }
         }
 
         private Item _selectedItem;
+
         public Item SelectedItem
         {
             get { return _selectedItem; }
-            set { _selectedItem = value; RaisePropertyChanged(() => SelectedItem); }
-        }
-
-        private ICommand _goToGroupCommand;
-
-        public ICommand GoToGroupCommand
-        {
-            get
+            set
             {
-                return (_goToGroupCommand = _goToGroupCommand ??
-                                            new MvxCommand<Item>(
-                                                (item) => GoToGroupDetails(item)));
+                _selectedItem = value;
+                RaisePropertyChanged(() => SelectedItem);
             }
         }
 
@@ -82,7 +81,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             {
                 return (_goToItemCommand = _goToItemCommand ??
                                             new MvxCommand<Item>(
-                                                (group) => ShowViewModel<GroupDetailsViewModel>(new { group = group })));
+                                                (item) => SelectedItem = item));
             }
         }
 
@@ -93,15 +92,23 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             get
             {
                 return (_addItemCommand = _addItemCommand ??
-                    new MvxCommand(() => ShowViewModel<AddItemViewModel>(new { group = _dataService.Source.ServiceName })));
+                                          new MvxCommand(
+                                              () =>
+                                                  ShowViewModel<AddItemViewModel>(
+                                                      new {group = _dataService.Source.ServiceName})));
             }
         }
 
         private void GoToGroupDetails(Item item)
         {
-            ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
+            ShowViewModel<GroupDetailsViewModel>(new {group = item.Group, title = item.Title});
         }
 
+        private ICommand _refreshCommand;
 
+        public ICommand RefreshCommand
+        {
+            get { return (_refreshCommand = _refreshCommand ?? new MvxCommand(() => Init(SelectedItem.Group, null))); }
+        }
     }
 }

@@ -18,6 +18,9 @@
                                 d:Source="{Binding ItemGroups, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=sampleData:GroupedItemsSampleData}}"
                                 IsSourceGrouped="True"
                                 />
+        <ControlTemplate x:Key="GroupHeaderButton" TargetType="Button">
+        	<Grid/>
+        </ControlTemplate>
     </views:MvxStorePage.Resources>
 
     <Grid Background="Black">
@@ -125,7 +128,7 @@
 			    ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
 			    SelectionMode="None"
 			    IsSwipeEnabled="false" IsItemClickEnabled="True"          
-                common:ItemClickCommand.Command="{Binding GoToGroupCommand}" >
+                common:ItemClickCommand.Command="{Binding GoToItemCommand}" >
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -136,10 +139,15 @@
                             <GroupStyle.HeaderTemplate>
                                 <DataTemplate>
                                     <Grid Margin="1,0,0,6">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Key}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
-                                            <TextBlock Text="{StaticResource ChevronGlyph}" Visibility="Collapsed" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                        </StackPanel>
+                                        <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                                AutomationProperties.Name="Group Title"
+                                                Click="GroupOnClick"
+                                                Style="{StaticResource TextBlockButtonStyle}" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Key}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
+                                                <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-11,0,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                            </StackPanel>
+                                        </Button>
                                     </Grid>
                                 </DataTemplate>
                             </GroupStyle.HeaderTemplate>
@@ -238,13 +246,12 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
     </Grid>
-    <views:MvxStorePage.BottomAppBar>
-        <AppBar>
-            <Grid>
-                <StackPanel x:Name="StandardBar" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button AutomationProperties.Name="Refresh" Content=""  Command="{Binding RefreshCommand, Mode=OneWay}" />
-                </StackPanel>
-            </Grid>
-        </AppBar>
-    </views:MvxStorePage.BottomAppBar>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="Refresh" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </views:MvxStorePage>

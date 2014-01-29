@@ -118,9 +118,6 @@
     <Compile Include="..\DFWMobile.Bootcamp.Core\ViewModels\BaseViewModel.cs">
       <Link>ViewModels\BaseViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\DFWMobile.Bootcamp.Core\ViewModels\FirstViewModel.cs">
-      <Link>ViewModels\FirstViewModel.cs</Link>
-    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Core\ViewModels\GroupDetailsViewModel.cs">
       <Link>ViewModels\GroupDetailsViewModel.cs</Link>
     </Compile>

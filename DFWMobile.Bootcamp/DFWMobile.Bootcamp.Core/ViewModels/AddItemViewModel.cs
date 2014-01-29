@@ -31,8 +31,8 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         public void Init(string group, string title)
         {
             var dataSource = DataServiceFactoryHelper.DataSources.FirstOrDefault(ds => ds.ServiceName == group);
-
             _dataService = _dataServiceFactory.GenerateService(dataSource);
+            Group = group;
         }
 
         public string Title

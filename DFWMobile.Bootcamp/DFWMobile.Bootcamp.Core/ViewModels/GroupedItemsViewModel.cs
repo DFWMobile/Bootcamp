@@ -54,14 +54,6 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             IsBusy = false;
         }
 
-        private bool _isBusy = false;
-
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            set { _isBusy = value; RaisePropertyChanged(() => IsBusy); }
-        }
-
         public ObservableCollection<Group<Item>> ItemGroups
         {
             get { return _groupedItems; }
@@ -74,8 +66,8 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             get
             {
                 return (_goToGroupCommand = _goToGroupCommand ??
-                                            new MvxCommand<Item>(
-                                                (item) => GoToGroupDetails(item)));
+                                            new MvxCommand<string>(
+                                                (groupName) => GoToGroupDetails(ItemGroups.FirstOrDefault(g => g.Key == groupName).FirstOrDefault())));
             }
         }
 
@@ -87,7 +79,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             {
                 return (_goToItemCommand = _goToItemCommand ??
                                             new MvxCommand<Item>(
-                                                (group) => ShowViewModel<GroupDetailsViewModel>(new { group = group })));
+                                                (item) => GoToGroupDetails(item)));
             }
         }
 

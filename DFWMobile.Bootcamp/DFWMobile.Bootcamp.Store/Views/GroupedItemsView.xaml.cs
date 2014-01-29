@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -16,8 +17,11 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+using Cirrious.CrossCore;
 using Cirrious.MvvmCross.WindowsStore.Views;
+using DFWMobile.Bootcamp.Common.Models;
 using DFWMobile.Bootcamp.Common.Services;
+using DFWMobile.Bootcamp.Core.ViewModels;
 
 namespace DFWMobile.Bootcamp.Store.Views
 {
@@ -64,6 +68,23 @@ namespace DFWMobile.Bootcamp.Store.Views
             //        searchPane_QuerySubmitted;
             //    Windows.ApplicationModel.Search.SearchPane.GetForCurrentView().ShowOnKeyboardInput = true;
             //}
+        }
+
+        private void GroupOnClick(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var group = button.DataContext as Group<Item>;
+
+                if (group != null)
+                    GroupedItemsViewModel.GoToGroupCommand.Execute(group.Key);
+            }
+        }
+
+        private GroupedItemsViewModel GroupedItemsViewModel
+        {
+            get { return ViewModel as GroupedItemsViewModel; }
         }
     }
 }
