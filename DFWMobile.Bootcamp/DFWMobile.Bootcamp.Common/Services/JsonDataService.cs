@@ -54,6 +54,8 @@ namespace DFWMobile.Bootcamp.Common.Services
                 .ConfigureAwait(true);
         }
 
+        public bool IsEditable { get { return true; } }
+
         public bool Save()
         {
             _fileStore.WriteFile(Source.ServiceUri, _jsonConverter.SerializeObject(_items));

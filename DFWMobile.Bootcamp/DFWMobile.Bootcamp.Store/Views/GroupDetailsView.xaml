@@ -60,10 +60,6 @@
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="1,0,0,6">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Key}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
-                                    <TextBlock Text="{StaticResource ChevronGlyph}" Visibility="Collapsed" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                </StackPanel>
                             </Grid>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>
@@ -104,7 +100,7 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{Binding SelectedItem.Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" Text="{Binding GroupName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
 
 
@@ -113,12 +109,12 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar IsOpen="True">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Refresh" Label="Refresh" Command="{Binding RefreshCommand}"/>
+                <AppBarButton Icon="Refresh" Label="Refresh" Command="{Binding RefreshCommand}" IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegationConverter}}"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Add" Label="Add" Command="{Binding AddItemCommand}" />
+                <AppBarButton Icon="Add" Label="Add" Command="{Binding AddItemCommand}" IsEnabled="{Binding IsEditable}" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

@@ -127,6 +127,8 @@ namespace DFWMobile.Bootcamp.Common.Services
             return items;
         }
 
+        public bool IsEditable { get { return false; } }
+
         /// <summary>
         /// Remove any whitespace or quotes from an RssSource field.
         /// </summary>

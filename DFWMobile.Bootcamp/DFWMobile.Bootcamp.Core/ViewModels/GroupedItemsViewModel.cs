@@ -44,9 +44,9 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             {
                 var items = await service.GetItems();
 
-                if (items != null && items.Count > 0)
+                if (items != null)
                 {
-                    var group = new Group<Item>(items[0].Group, items);
+                    var group = new Group<Item>(service.Source.ServiceName, items);
 
                     _groupedItems.Add(group);
                 }
@@ -66,8 +66,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             get
             {
                 return (_goToGroupCommand = _goToGroupCommand ??
-                                            new MvxCommand<string>(
-                                                (groupName) => GoToGroupDetails(ItemGroups.FirstOrDefault(g => g.Key == groupName).FirstOrDefault())));
+                                            new MvxCommand<string>(GoToGroupDetails));
             }
         }
 
@@ -86,6 +85,11 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         private void GoToGroupDetails(Item item)
         {
             ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
+        }
+
+        private void GoToGroupDetails(string groupName)
+        {
+            ShowViewModel<GroupDetailsViewModel>(new { group = groupName });
         }
     }
 }

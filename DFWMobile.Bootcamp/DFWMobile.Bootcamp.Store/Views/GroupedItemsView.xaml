@@ -135,10 +135,10 @@
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
                     <GridView.GroupStyle>
-                        <GroupStyle>
+                        <GroupStyle HidesIfEmpty="False">
                             <GroupStyle.HeaderTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="1,0,0,6">
+                                    <Grid Margin="1,0,14,6">
                                         <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
                                                 AutomationProperties.Name="Group Title"
                                                 Click="GroupOnClick"
@@ -250,7 +250,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Refresh" Label="Refresh" />
+                <AppBarButton Icon="Refresh" Label="Refresh" IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanNegationConverter}}" />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

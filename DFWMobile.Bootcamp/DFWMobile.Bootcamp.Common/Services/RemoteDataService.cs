@@ -36,6 +36,8 @@ namespace DFWMobile.Bootcamp.Common.Services
             return ParseItems(remoteItemsXml, _dataSource.ServiceName);
         }
 
+        public bool IsEditable { get { return false; } }
+
         public Task<bool> Add(Item item)
         {
             throw new NotImplementedException();
