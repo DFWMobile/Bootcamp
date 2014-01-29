@@ -4,9 +4,13 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 
 namespace DFWMobile.Bootcamp.Common.Models
 {
+    [DataContract]
+    [DataTable("Item")]
     public class Item
     {
         [DataMember(Name = "id")]

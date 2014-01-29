@@ -15,6 +15,12 @@ namespace DFWMobile.Bootcamp.Core.Helpers
         {
             _dataSources = new List<IDataSource>()
             {
+                new AzureMobileDataSource()
+                {
+                    ApplicationKey = "<your code here>",
+                    ServiceUri = "https://dfwmobile-test.azure-mobile.net/",
+                    ServiceName = "Azure Mobile Services"
+                },
                 new JsonDataSource()
                 {
                     ServiceUri = "local.json",

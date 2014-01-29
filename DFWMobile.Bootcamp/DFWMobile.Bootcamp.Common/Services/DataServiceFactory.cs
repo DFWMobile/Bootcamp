@@ -44,6 +44,10 @@ namespace DFWMobile.Bootcamp.Common.Services
             {
                 service = new JsonDataService(source, _fileStore, _jsonConverter);
             }
+            else if (source is AzureMobileDataSource)
+            {
+                service = new AzureMobileDataService(source);
+            }
 
             return service;
         }

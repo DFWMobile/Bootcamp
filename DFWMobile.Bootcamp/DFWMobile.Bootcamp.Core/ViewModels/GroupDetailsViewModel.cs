@@ -126,7 +126,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
 
         public ICommand RefreshCommand
         {
-            get { return (_refreshCommand = _refreshCommand ?? new MvxCommand(() => Init(SelectedItem.Group, null))); }
+            get { return (_refreshCommand = _refreshCommand ?? new MvxCommand(() => Init(GroupName, null))); }
         }
 
         private bool _isEditable = false;
