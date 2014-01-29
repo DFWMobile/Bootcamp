@@ -104,6 +104,9 @@
     <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\IDataSource.cs">
       <Link>DataSources\IDataSource.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\JsonDataSource.cs">
+      <Link>DataSources\JsonDataSource.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\LocalDataSource.cs">
       <Link>DataSources\LocalDataSource.cs</Link>
     </Compile>
@@ -139,6 +142,9 @@
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\Services\ItemDataService.cs">
       <Link>Services\ItemDataService.cs</Link>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Common\Services\JsonDataService.cs">
+      <Link>Services\JsonDataService.cs</Link>
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\Services\LocalDataService.cs">
       <Link>Services\LocalDataService.cs</Link>

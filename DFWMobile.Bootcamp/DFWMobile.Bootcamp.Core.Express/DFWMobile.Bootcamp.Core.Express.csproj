@@ -112,6 +112,9 @@
     <Compile Include="..\DFWMobile.Bootcamp.Core\Helpers\Settings.cs">
       <Link>Helpers\Settings.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Core\ViewModels\AddItemViewModel.cs">
+      <Link>ViewModels\AddItemViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Core\ViewModels\BaseViewModel.cs">
       <Link>ViewModels\BaseViewModel.cs</Link>
     </Compile>
