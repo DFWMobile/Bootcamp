@@ -22,12 +22,14 @@ namespace DFWMobile.Bootcamp.Common.Services
             if (_mobileServiceClient == null)
             {
                 _mobileServiceClient = new MobileServiceClient(Source.ServiceUri, _azureDataSource.ApplicationKey);
+
+                _itemTable = _mobileServiceClient.GetTable<Item>();
+
             }
 
-            _itemTable = _mobileServiceClient.GetTable<Item>();
         }
 
-        private readonly IMobileServiceTable<Item> _itemTable;
+        private static IMobileServiceTable<Item> _itemTable;
 
         public IDataSource Source { get; private set; }
         public async Task<List<Item>> GetItems()
@@ -38,6 +40,7 @@ namespace DFWMobile.Bootcamp.Common.Services
         public async Task<bool> Add(Item item)
         {
             await _itemTable.InsertAsync(item);
+            
 
             return true;
         }
