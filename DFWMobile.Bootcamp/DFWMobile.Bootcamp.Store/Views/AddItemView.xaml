@@ -62,7 +62,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar IsOpen="True">
+        <CommandBar IsOpen="True" IsSticky="True">
             <CommandBar.PrimaryCommands>
                 <AppBarButton Icon="Cancel" Label="Cancel" Command="{Binding GoBackCommand}"/>
             </CommandBar.PrimaryCommands>
