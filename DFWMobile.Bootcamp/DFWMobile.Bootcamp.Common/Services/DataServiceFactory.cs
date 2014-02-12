@@ -28,9 +28,13 @@ namespace DFWMobile.Bootcamp.Common.Services
         public IDataService GenerateService(IDataSource source)
         {
             IDataService service = null;
-            if (source is RssDataSource)
+            if (source is GeoRssDataSource)
             {
-                service = new RssDataService((RssDataSource) source, _appSettings);
+                service = new GeoEarthquakeDataService(source, _appSettings, _jsonConverter);
+            }
+            else if (source is RssDataSource)
+            {
+                service = new RssDataService(source, _appSettings);
             }
             else if (source is LocalDataSource)
             {
