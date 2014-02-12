@@ -119,8 +119,20 @@
     <Compile Include="..\DFWMobile.Bootcamp.Store\Bootstrap\VisibilityPluginBootstrap.cs">
       <Link>Bootstrap\VisibilityPluginBootstrap.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Common\BindableMap.cs">
+      <Link>Common\BindableMap.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Store\Common\ItemClickCommand.cs">
       <Link>Common\ItemClickCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Common\LocationAwareDataTemplate.cs">
+      <Link>Common\LocationAwareDataTemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Common\MapItem.cs">
+      <Link>Common\MapItem.cs</Link>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Common\MapItemDataTemplateSelector.cs">
+      <Link>Common\MapItemDataTemplateSelector.cs</Link>
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Store\Common\NavigationHelper.cs">
       <Link>Common\NavigationHelper.cs</Link>
@@ -143,6 +155,9 @@
     <Compile Include="..\DFWMobile.Bootcamp.Store\Converters\HoneycombConverter.cs">
       <Link>Converters\HoneycombConverter.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Converters\LocationConverter.cs">
+      <Link>Converters\LocationConverter.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Store\Converters\Pair.cs">
       <Link>Converters\Pair.cs</Link>
     </Compile>
@@ -158,6 +173,10 @@
     <Compile Include="..\DFWMobile.Bootcamp.Store\Views\AddItemView.xaml.cs">
       <Link>Views\AddItemView.xaml.cs</Link>
       <DependentUpon>AddItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Store\Views\GeoGroupDetailsView.xaml.cs">
+      <Link>Views\GeoGroupDetailsView.xaml.cs</Link>
+      <DependentUpon>GeoGroupDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Store\Views\GroupDetailsView.xaml.cs">
       <Link>Views\GroupDetailsView.xaml.cs</Link>
@@ -209,6 +228,11 @@
     </ApplicationDefinition>
     <Page Include="..\DFWMobile.Bootcamp.Store\Views\AddItemView.xaml">
       <Link>Views\AddItemView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\DFWMobile.Bootcamp.Store\Views\GeoGroupDetailsView.xaml">
+      <Link>Views\GeoGroupDetailsView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -289,6 +313,14 @@
       <Project>{8b1172cc-ecd3-4cfe-b0c1-d7c480496d9f}</Project>
       <Name>DFWMobile.Bootcamp.Core.Express</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.313.0825.0">
+      <Name>Bing Maps for C#, C++, or Visual Basic</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

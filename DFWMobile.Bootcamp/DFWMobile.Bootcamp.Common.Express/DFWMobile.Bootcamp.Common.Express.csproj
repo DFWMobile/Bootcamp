@@ -106,6 +106,9 @@
     <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\AzureMobileDataSource.cs">
       <Link>DataSources\AzureMobileDataSource.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\GeoRssDataSource.cs">
+      <Link>DataSources\GeoRssDataSource.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\DataSources\IDataSource.cs">
       <Link>DataSources\IDataSource.cs</Link>
     </Compile>
@@ -124,6 +127,9 @@
     <Compile Include="..\DFWMobile.Bootcamp.Common\Helpers\Settings.cs">
       <Link>Helpers\Settings.cs</Link>
     </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Common\Models\GeoItem.cs">
+      <Link>Models\GeoItem.cs</Link>
+    </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\Models\Group.cs">
       <Link>Models\Group.cs</Link>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\Services\DataServiceFactory.cs">
       <Link>Services\DataServiceFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\DFWMobile.Bootcamp.Common\Services\GeoEarthquakeDataService.cs">
+      <Link>Services\GeoEarthquakeDataService.cs</Link>
     </Compile>
     <Compile Include="..\DFWMobile.Bootcamp.Common\Services\IDataService.cs">
       <Link>Services\IDataService.cs</Link>
