@@ -7,6 +7,8 @@
     xmlns:SampleData="using:Blend.SampleData.SampleDataSource"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Bing.Maps"
+    xmlns:common="using:DFWMobile.Bootcamp.Store.Common"
     mc:Ignorable="d"
     x:Class="DFWMobile.Bootcamp.Store.App"
     >
@@ -335,9 +337,32 @@
             <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
             <converters:HoneycombConverter x:Key="HoneycombConverter"/>
+            <converters:LocationConverter x:Key="GeoLocationConverter" />
 
             <converters:PairConverter x:Key="PairConverter" />
-            
+
+
+            <common:MapItemDataTemplateSelector x:Key="ItemTemplateSelector" />
+            <Style TargetType="common:BindableMap">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="common:BindableMap">
+                            <maps:Map x:Name="PART_Map" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <DataTemplate x:Key="ItemTemplate"
+                common:LocationAwareDataTemplate.LatitudePath="Latitude"
+                common:LocationAwareDataTemplate.LongitudePath="Longitude">
+                <!--<Grid Width="50" Height="50" Background="Black">
+                    <TextBlock Text="{Binding Title}" Foreground="Red" />
+                </Grid>-->
+                <maps:Pushpin Text="{Binding Title}" Background="Red" ></maps:Pushpin>
+            </DataTemplate>
+
             <x:String x:Key="AppName">DFW Mobile</x:String>
 
         </ResourceDictionary>

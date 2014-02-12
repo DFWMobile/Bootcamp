@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFWMobile.Bootcamp.Common", "DFWMobile.Bootcamp.Common\DFWMobile.Bootcamp.Common.csproj", "{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}"
 EndProject
@@ -28,6 +28,7 @@ Global
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Debug|x86.Build.0 = Debug|Any CPU
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{317E01CD-D5CB-48A6-AEAC-0FB3457E9FAD}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -38,6 +39,7 @@ Global
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Debug|x86.Build.0 = Debug|Any CPU
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D646A815-5AD3-45FA-9993-5EFC35923DAF}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -72,6 +74,7 @@ Global
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Debug|x86.Build.0 = Debug|Any CPU
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBFFAD5B-31E0-4043-9886-0C6C7A203F96}.Release|ARM.ActiveCfg = Release|Any CPU

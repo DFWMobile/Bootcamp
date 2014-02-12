@@ -113,7 +113,11 @@
     <Compile Include="Bootstrap\ResourceLoaderPluginBootstrap.cs" />
     <Compile Include="Bootstrap\SettingsPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
+    <Compile Include="Common\BindableMap.cs" />
     <Compile Include="Common\ItemClickCommand.cs" />
+    <Compile Include="Common\LocationAwareDataTemplate.cs" />
+    <Compile Include="Common\MapItem.cs" />
+    <Compile Include="Common\MapItemDataTemplateSelector.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
@@ -121,6 +125,7 @@
     <Compile Include="Converters\BooleanNegationConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\HoneycombConverter.cs" />
+    <Compile Include="Converters\LocationConverter.cs" />
     <Compile Include="Converters\Pair.cs" />
     <Compile Include="Converters\PairConverter.cs" />
     <Compile Include="DebugTrace.cs" />
@@ -128,6 +133,9 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Views\AddItemView.xaml.cs">
       <DependentUpon>AddItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeoGroupDetailsView.xaml.cs">
+      <DependentUpon>GeoGroupDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GroupDetailsView.xaml.cs">
       <DependentUpon>GroupDetailsView.xaml</DependentUpon>
@@ -167,6 +175,10 @@
     <Page Include="Views\AddItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeoGroupDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\GroupDetailsView.xaml">
       <SubType>Designer</SubType>
@@ -251,7 +263,14 @@
       <Name>DFWMobile.Bootcamp.Core.Ex</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.313.0825.0">
+      <Name>Bing Maps for C#, C++, or Visual Basic</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
