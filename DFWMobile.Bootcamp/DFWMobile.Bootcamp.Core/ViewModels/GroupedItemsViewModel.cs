@@ -21,12 +21,14 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         private IDataServiceFactory _dataServiceFactory;
         private readonly List<IDataService> _dataServices;
         private readonly IMvxResourceLoader _resourceLoader;
-        private readonly ObservableCollection<Group<Item>> _groupedItems; 
+        private readonly ObservableCollection<Group<Item>> _groupedItems;
+        private readonly IAppSettings _appSettings;
         public GroupedItemsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
             : base(appSettings)
         {
             _dataServiceFactory = dataServiceFactory;
             _resourceLoader = resourceLoader;
+            _appSettings = appSettings;
 
             _dataServices = new List<IDataService>();
             foreach (var source in DataServiceFactoryHelper.DataSources)
@@ -42,7 +44,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             IsBusy = true;
             foreach (var service in _dataServices)
             {
-                var items = await service.GetItems();
+                var items = (await service.GetItems()).Take(_appSettings.RssMaxItemsPerFeed);
 
                 if (items != null)
                 {
@@ -84,12 +86,20 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
 
         private void GoToGroupDetails(Item item)
         {
-            ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
+            if (item is GeoItem)
+                ShowViewModel<GeoGroupDetailsViewModel>(new { group = item.Group, title = item.Title });
+            else
+                ShowViewModel<GroupDetailsViewModel>(new { group = item.Group, title = item.Title });
         }
 
         private void GoToGroupDetails(string groupName)
         {
-            ShowViewModel<GroupDetailsViewModel>(new { group = groupName });
+            var group = _groupedItems.FirstOrDefault(g => g.Key == groupName);
+            var firstItem = group.FirstOrDefault();
+            if (firstItem is GeoItem)
+                ShowViewModel<GeoGroupDetailsViewModel>(new { group = groupName });
+            else
+                ShowViewModel<GroupDetailsViewModel>(new { group = groupName });
         }
     }
 }

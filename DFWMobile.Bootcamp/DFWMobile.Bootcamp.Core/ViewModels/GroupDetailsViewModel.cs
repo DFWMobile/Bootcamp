@@ -31,7 +31,23 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             _groupedItems = new ObservableCollection<Group<Item>>();
         }
 
-        public async void Init(string group, string title)
+        protected IDataServiceFactory DataServiceFactory
+        {
+            get { return _dataServiceFactory; }
+        }
+
+        protected IDataService DataService
+        {
+            get { return _dataService; }
+            set { _dataService = value; }
+        }
+
+        protected IMvxResourceLoader ResourceLoader
+        {
+            get { return _resourceLoader; }
+        }
+
+        public async Task Init(string group, string title)
         {
             IsBusy = true;
             var dataSource = DataServiceFactoryHelper.DataSources.FirstOrDefault(ds => ds.ServiceName == group);
@@ -54,6 +70,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
                     SelectedItem = items.FirstOrDefault();
                 }
                 IsEditable = _dataService.IsEditable;
+                RaisePropertyChanged(() => SelectedGroup);
             }
             IsBusy = false;
         }
@@ -62,7 +79,6 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         {
             get { return _groupedItems; }
         }
-
         public string GroupName
         {
             get { return _dataService.Source.ServiceName; }

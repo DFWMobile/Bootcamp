@@ -15,12 +15,17 @@ namespace DFWMobile.Bootcamp.Core.Helpers
         {
             _dataSources = new List<IDataSource>()
             {
-                new AzureMobileDataSource()
+                new GeoRssDataSource()
                 {
-                    ApplicationKey = "<your code here>",
-                    ServiceUri = "https://dfwmobile-test.azure-mobile.net/",
-                    ServiceName = "Azure Mobile Services"
+                    ServiceUri = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson",
+                    ServiceName = "Earthquakes"
                 },
+                //new AzureMobileDataSource()
+                //{
+                //    ApplicationKey = "lAYiSrZBgZkDPrrYkdXkIdYeqMlRTt62",
+                //    ServiceUri = "https://dfwmobile-test.azure-mobile.net/",
+                //    ServiceName = "Azure Mobile Services"
+                //},
                 new JsonDataSource()
                 {
                     ServiceUri = "local.json",
