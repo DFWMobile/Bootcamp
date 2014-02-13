@@ -209,6 +209,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Content Include="..\DFWMobile.Bootcamp.Store\Assets\USGS.jpg">
+      <Link>Assets\USGS.jpg</Link>
+    </Content>
     <Content Include="..\DFWMobile.Bootcamp.Store\Common\ReadMe.txt">
       <Link>Common\ReadMe.txt</Link>
     </Content>

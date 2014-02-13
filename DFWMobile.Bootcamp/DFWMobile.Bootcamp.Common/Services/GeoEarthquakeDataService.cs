@@ -52,7 +52,8 @@ namespace DFWMobile.Bootcamp.Common.Services
                     Group = Source.ServiceName,
                     Id = earthquake.Id,
                     Latitude = earthquake.Geometry.Coordinates[1],
-                    Longitude = earthquake.Geometry.Coordinates[0]
+                    Longitude = earthquake.Geometry.Coordinates[0],
+                    Image = "/Assets/USGS.jpg"
                 });
             }
 
