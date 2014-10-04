@@ -343,6 +343,8 @@
 
 
             <common:MapItemDataTemplateSelector x:Key="ItemTemplateSelector" />
+            
+            
             <Style TargetType="common:BindableMap">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -360,7 +362,10 @@
                 <!--<Grid Width="50" Height="50" Background="Black">
                     <TextBlock Text="{Binding Title}" Foreground="Red" />
                 </Grid>-->
-                <maps:Pushpin Text="{Binding Title}" Background="Red" ></maps:Pushpin>
+                <TextBlock Text="{Binding Title}" Foreground="Red" />
+                <!--<maps:Pushpin Text="{Binding Title}" Background="Red" >
+                    
+                </maps:Pushpin>-->
             </DataTemplate>
 
             <x:String x:Key="AppName">DFW Mobile</x:String>

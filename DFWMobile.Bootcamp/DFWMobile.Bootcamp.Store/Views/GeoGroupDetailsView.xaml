@@ -53,8 +53,12 @@
                     <TextBlock Text="{Binding Title}" Margin="0,0,0,20" Style="{StaticResource SubheaderTextBlockStyle}" MaxHeight="60"/>
 
 
-                    <common:BindableMap x:Name="MapControl" Credentials="AjKsZydKJ4xJk8RA67MUO6SArS6aeYO80UyEXsA6AiAFPN8YZiCRjozBOeYkhkJX" 
-                          DataTemplateSelector="{StaticResource ItemTemplateSelector}" ItemsSource="{Binding Items}" Height="400"/>
+                    <common:BindableMap x:Name="MapControl"
+                                        Credentials="AjKsZydKJ4xJk8RA67MUO6SArS6aeYO80UyEXsA6AiAFPN8YZiCRjozBOeYkhkJX" 
+                                        DataTemplateSelector="{StaticResource ItemTemplateSelector}"
+                                        ItemsSource="{Binding Items}"
+                                        Center="{Binding SelectedItem, Converter={StaticResource GeoLocationConverter}}"
+                                        Height="400"/>
                     <TextBlock Text="{Binding Description}" Margin="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}"/>
 
                 </StackPanel>

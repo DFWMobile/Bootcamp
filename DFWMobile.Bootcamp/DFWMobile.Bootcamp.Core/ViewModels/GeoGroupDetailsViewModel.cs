@@ -18,6 +18,11 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
         public GeoGroupDetailsViewModel(IAppSettings appSettings, IDataServiceFactory dataServiceFactory, IMvxResourceLoader resourceLoader)
             : base(appSettings, dataServiceFactory, resourceLoader)
         {
+            SelectedItem = new GeoItem
+            {
+                Longitude = -147.9315,
+                Latitude = 60.4371
+            };
         }
 
 

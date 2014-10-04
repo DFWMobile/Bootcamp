@@ -212,7 +212,8 @@ namespace DFWMobile.Bootcamp.Store.Common
 
         private void ApplyCenter()
         {
-            _mapControl.Center = Center;
+            if (_mapControl != null)
+                _mapControl.Center = Center;
         }
 
         private void OnShapeLayersPropertyChanged(ICollection<MapShapeLayer> oldValue, ICollection<MapShapeLayer> newValue)

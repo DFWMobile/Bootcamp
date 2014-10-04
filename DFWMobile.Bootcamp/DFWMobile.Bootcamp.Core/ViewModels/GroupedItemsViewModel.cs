@@ -9,6 +9,7 @@ using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.ViewModels;
 using DFWMobile.Bootcamp.Common.DataSources;
 using DFWMobile.Bootcamp.Common.Models;
+using DFWMobile.Bootcamp.Common.SampleData;
 using DFWMobile.Bootcamp.Common.Services;
 using DFWMobile.Bootcamp.Common.Settings;
 using DFWMobile.Bootcamp.Core.Helpers;
@@ -45,7 +46,7 @@ namespace DFWMobile.Bootcamp.Core.ViewModels
             foreach (var service in _dataServices)
             {
                 var items = (await service.GetItems()).Take(_appSettings.RssMaxItemsPerFeed);
-
+                
                 if (items != null)
                 {
                     var group = new Group<Item>(service.Source.ServiceName, items);
